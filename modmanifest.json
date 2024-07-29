@@ -1,0 +1,7 @@
+{
+    "UniqueModName": "nbk_redspy_QM_ProductionTweaks",
+    "Assemblies": [
+        "QM_ProductionTweaks.dll"
+    ],
+    "Dependencies": []
+}
