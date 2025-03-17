@@ -14,9 +14,9 @@ namespace QM_ProductionTweaks
     /// Change the initial value to be the maximum that can be produced instead of 1.
     /// </summary>
     [HarmonyPatch(typeof(MagnumSelectItemToProduceWindow), nameof(MagnumSelectItemToProduceWindow.ReceiptPanelOnStartProduction))]
-    internal static class ContextSplitProductionButton_Initialize_Patch
+    internal static class MagnumSelectItemToProduceWindow_ReceiptPanelOnStartProduction_Patch
     {
-        public static void Postfix(MagnumSelectItemToProduceWindow __instance, ItemReceiptPanel panel)
+        public static bool Prefix(MagnumSelectItemToProduceWindow __instance, ItemReceiptPanel panel)
         {
 
             //Debug testing
@@ -54,6 +54,10 @@ namespace QM_ProductionTweaks
                 .SetBackgroundOrder(-1)
                 .SetBackOnBackgroundClick(value: true);
             UI.Get<CommonContextMenu>().SnapToPosition(panel.transform.GetCenterPosition());
+
+            return false;
         }
+
+        
     }
 }
