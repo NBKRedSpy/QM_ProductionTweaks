@@ -41,7 +41,7 @@ namespace QM_ProductionTweaks
 
         public static bool Prefix(object __instance, MGSC.CommonContextMenu v, int ___maxCraft)
         {
-            //------- The goal is to change this code to use the max value:
+            //------- The goal is to change the slider's value to default to the max value instead of 1.
             //  ...
             // 	UI.Chain<CommonContextMenu>().Invoke(delegate(CommonContextMenu v)
             // 	{
