@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace QM_ProductionTweaks
 {
-    [HarmonyPatch(typeof(MagnumSelectItemToProduceWindow), nameof(MagnumSelectItemToProduceWindow.Hide))]
+    [HarmonyPatch(typeof(MagnumSelectItemToProduceWindow), nameof(MagnumSelectItemToProduceWindow.ContextMenuOnHide))]
     internal static class MagnumSelectItemToProduceWindow_Hide_Patch
     {
         public static void Postfix(MagnumSelectItemToProduceWindow __instance)
