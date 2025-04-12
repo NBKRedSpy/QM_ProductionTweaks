@@ -13,3 +13,9 @@ Thanks!
 [h1]Source Code[/h1]
 
 Source code is available on GitHub at https://github.com/NBKRedSpy/QM_ProductionTweaks
+
+[h1]Change Log[/h1]
+
+[h2]1.1.0[/h2]
+
+Compatible with the 0.8.6 opt in beta
