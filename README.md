@@ -14,5 +14,8 @@ Source code is available on GitHub at https://github.com/NBKRedSpy/QM_Production
 
 # Change Log
 
+## 1.2.0
+* Restores last filter that was used. 
+
 ## 1.1.0
-Compatible with the 0.8.6 opt in beta
+* Compatible with the 0.8.6 opt in beta

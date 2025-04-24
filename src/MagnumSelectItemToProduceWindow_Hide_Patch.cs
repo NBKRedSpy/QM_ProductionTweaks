@@ -14,6 +14,7 @@ namespace QM_ProductionTweaks
         public static void Postfix(MagnumSelectItemToProduceWindow __instance)
         {
             MagnumSelectItemToProduceWindow_InitPanels_Patch.LastPosition = __instance._scrollRect.normalizedPosition;
+            MagnumSelectItemToProduceWindow_InitPanels_Patch.LastReceiptCategory = __instance._receiptCategory;
         }
     }
 }
