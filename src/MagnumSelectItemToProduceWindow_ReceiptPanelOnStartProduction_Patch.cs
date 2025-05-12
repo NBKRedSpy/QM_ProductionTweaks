@@ -3,38 +3,34 @@ using MGSC;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Reflection.Emit;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using UnityEngine;
-using static Rewired.Demos.CustomPlatform.MyPlatformControllerExtension;
 
 namespace QM_ProductionTweaks
 {
-
-    /// <summary>
-    /// Change the initial value to be the maximum that can be produced instead of 1.
-    /// </summary>
-    [HarmonyPatch("MGSC.MagnumSelectItemToProduceWindow+<>c__DisplayClass30_0", "<ReceiptPanelOnStartProduction>b__0")]
+    [HarmonyPatch(typeof(MagnumSelectItemToProduceWindow), nameof(MagnumSelectItemToProduceWindow.ReceiptPanelOnStartProduction))]
     internal static class MagnumSelectItemToProduceWindow_ReceiptPanelOnStartProduction_Patch
     {
-
-        public static bool Prefix(object __instance, MGSC.CommonContextMenu v, int ___maxCraft)
+        /// <summary>
+        /// Reset the "last amount produced" value if the production item has changed.
+        /// </summary>
+        /// <param name="__instancze"></param>
+        public static void Prefix(MagnumSelectItemToProduceWindow __instance, ItemReceiptPanel panel)
         {
-            //------- The goal is to change the slider's value to default to the max value instead of 1.
-            //  ...
-            // 	UI.Chain<CommonContextMenu>().Invoke(delegate(CommonContextMenu v)
-            // 	{
-            // 		v.AddSliderCommand(1, 1, maxCraft);
-            // 	}).Invoke(delegate(CommonContextMenu v)
-            // 	{
-            //  ...
+            var info = Plugin.ProductionInfo;
 
-            v.AddSliderCommand(___maxCraft, 1, ___maxCraft);
-            return false;
+
+            string itemId = panel.Receipt.OutputItem;
+
+            if (info.LastItemId != itemId)
+            {
+                info.LastAmount = 0;
+            }
+
+            info.LastItemId = itemId;
+
+            Plugin.ProductionInfo.LastPosition = __instance._scrollRect.normalizedPosition;
+            Plugin.ProductionInfo.LastReceiptCategory = __instance._receiptCategory;
         }
     }
-
 }

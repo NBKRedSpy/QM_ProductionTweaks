@@ -18,6 +18,8 @@ namespace QM_ProductionTweaks
         public static string ConfigPath => Path.Combine(Application.persistentDataPath, ModAssemblyName, "config.json");
         public static string ModPersistenceFolder => Path.Combine(Application.persistentDataPath, ModAssemblyName);
 
+        public static ProductionInfo ProductionInfo { get; set; } = new ProductionInfo();
+
         [Hook(ModHookType.AfterConfigsLoaded)]
         public static void AfterConfig(IModContext context)
         {

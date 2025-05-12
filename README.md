@@ -14,6 +14,9 @@ Source code is available on GitHub at https://github.com/NBKRedSpy/QM_Production
 
 # Change Log
 
+## 1.3.0
+* Remembers the last amount if it is the same as the previously selected item.  Useful when producing a single item multiple times.
+
 ## 1.2.0
 * Restores last filter that was used. 
 
